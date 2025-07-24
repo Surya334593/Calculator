@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+    <h1 id="result">Result</h1><br>
+    <div id = "calculator">
+    <button onclick="clearResult()">AC</button>
+    <button onclick="backspace()">Clear</button>
+    <button onclick="toggleSign()">+/-</button>
+    <button onclick="calculate(event)">/</button>
+    
+    <button onclick="calculate(event)">1</button>
+    <button onclick="calculate(event)">2</button>
+    <button onclick="calculate(event)">3</button>
+    <button onclick="calculate(event)">*</button>
+    
+    <button onclick="calculate(event)">4</button>
+    <button onclick="calculate(event)">5</button>
+    <button onclick="calculate(event)">6</button>
+    <button onclick="calculate(event)">-</button>
+    
+    <button onclick="calculate(event)">7</button>
+    <button onclick="calculate(event)">8</button>
+    <button onclick="calculate(event)">9</button>
+    <button onclick="calculate(event)">+</button>
+    
+    <button onclick="calculate(event)">%</button>
+    <button onclick="calculate(event)">0</button>
+    <button onclick="calculate(event)">.</button>
+    <button onclick="evaluateResult()">=</button>
+    </div>
+
+    <script>
+        var blank = ""
+        function calculate(event){
+            var input = event.target.textContent
+            blank +=input
+            document.getElementById("result").textContent = blank
+        }
+        function backspace(){
+            blank = blank.slice(0,-1)
+            document.getElementById("result").textContent = blank ||"Result"
+        }
+        function clearResult(){
+            blank = ""
+            document.getElementById("result").textContent = "Result"
+        }
+        function toggleSign(){
+            if(blank){
+                if (blank.startsWith("-")){
+                blank=blank.slice(1)
+            }else{
+                blank = "-" +blank
+            }
+                 document.getElementById("result").textContent = blank
+        }
+        }
+        function evaluateResult(){
+            try{
+            var res = eval(blank.replace("x","*"))
+            document.getElementById("result").textContent = res
+            blank = res.toString()}
+            catch{
+                document.getElementById("result").textContent = "Error"
+                blank = ""
+            }
+        }
+    </script>
+</body>
+</html>

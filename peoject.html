@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+    body{
+        text-size-adjust: 100;
+    }
+    </style>
+</head>
+<body>
+    <h1 id= "result" >Result</h1><br>
+<button onclick = "calculate(event)">AC</button>
+<button onclick = "calculate(event)">Clear</button>
+<button onclick = "calculate(event)">+/-</button>
+<button onclick = "calculate(event)">/</button><br>
+
+<button onclick = "calculate(event)">1</button>
+<button onclick = "calculate(event)">2</button>
+<button onclick = "calculate(event)">3</button>
+<button onclick = "calculate(event)">x</button><br>
+
+<button onclick = "calculate(event)">4</button>
+<button onclick = "calculate(event)">5</button>
+<button onclick = "calculate(event)">6</button>
+<button onclick = "calculate(event)">-</button><br>
+
+<button onclick = "calculate(event)">7</button>
+<button onclick = "calculate(event)">8</button>
+<button onclick = "calculate(event)">9</button>
+<button onclick = "calculate(event)">+</button><br>
+
+<button onclick = "calculate(event)">%</button>
+<button onclick = "calculate(event)">0</button>
+<button onclick = "calculate(event)">.</button>
+<button onclick = "calculate(event)">=</button>
+<script>
+   let currentInput = "";
+
+        function calculate(event) {
+            const value = event.target.textContent;
+            currentInput += value;
+            document.getElementById("result").textContent = currentInput;
+        }
+        </script>
+</body>
+</html>
+   
